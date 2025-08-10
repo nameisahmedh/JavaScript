@@ -33,5 +33,5 @@ let s1 = 200
 let s2 = 400
 let s3 = 600
 
-console.log(Array.of(s1,s2,s3));
+console.log(Array.of(s1,s2,s3)); // It will convert a set of elements to a array
 
