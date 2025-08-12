@@ -1,0 +1,69 @@
+How JavaScript Execution Works: A Detailed Breakdown
+
+This note covers the entire process of how a JavaScript engine executes your code, from the moment it receives your script to the final output.
+
+1. The JavaScript Engine
+
+At the core of JavaScript execution is the JavaScript Engine. This is a sophisticated program responsible for reading, understanding, and running your JS code. Every major browser has its own engine:
+
+  - V8: Powers Google Chrome, Node.js, and other Chromium-based browsers.
+  - SpiderMonkey: Used in Firefox.
+  - JavaScriptCore: Powers Safari.
+
+While implementations differ slightly, they all follow the same fundamental principles of the ECMAScript standard.
+
+2. The Two Phases of Execution
+
+JavaScript code is not executed in a single pass. Instead, it runs within an Execution Context that has two distinct phases:
+
+Phase I: Memory Creation Phase
+
+Before a single line of code is executed, the engine makes a quick pass to set up memory for all the variables and functions.
+
+  - For Variables (var, let, const): The engine allocates memory and assigns a placeholder value of undefined. This is why you can log a var before its declaration and see undefined instead of an error. This behavior is called hoisting.
+  - For Function Declarations: The engine allocates memory and stores the entire function definition. This is why you can call a function before it's declared in your code.
+
+Phase II: Execution Phase
+
+After setting up memory, the engine makes a second pass to actually execute the code line by line:
+
+  - Variable Assignments: It replaces the undefined placeholders with the actual values you assigned in your code.
+  - Function Calls: When it encounters a function call, a new Function Execution Context is created and pushed onto the Call Stack. This new context goes through its own Memory and Execution phases.
+  - Return: When a function finishes, its execution context is popped off the Call Stack, and control returns to the context that called it.
+
+3. The Call Stack
+
+The Call Stack is a data structure that manages execution contexts. It operates on a Last-In, First-Out (LIFO) principle.
+
+  - When a script starts, the Global Execution Context is pushed to the bottom of the stack.
+  - Every time a function is called, its new context is pushed on top.
+  - Every time a function returns, its context is popped off the top.
+  - A "Stack Overflow" error occurs if the stack grows too large, usually due to infinite recursion.
+
+4. Just-In-Time (JIT) Compilation: The Modern Process
+
+Modern engines like V8 use a more complex process called Just-In-Time (JIT) Compilation to be both fast and efficient. This blends the speed of an interpreter with the efficiency of a compiler.
+
+Here’s the step-by-step flow:
+
+1.  Parsing: The engine's Parser reads your code. It checks for syntax errors and creates a data structure called an Abstract Syntax Tree (AST). The AST is a tree-like model representing your code's structure.
+
+2.  Interpretation: The AST is sent to the Interpreter (in V8, this is called Ignition). The interpreter quickly converts the code into Bytecode, which is a low-level, machine-like set of instructions. This bytecode starts running immediately, so your app starts fast.
+
+3.  Profiling (Monitoring): While the bytecode is running, a Profiler (or Monitor) watches for "hot" code—functions or loops that are executed frequently. It also gathers data on what types of data are being used in these hot spots (e.g., "this function is always called with numbers").
+
+4.  Optimizing Compilation: When a function is identified as "hot," the engine sends the bytecode and the profiler's data to the Optimizing Compiler (in V8, this is TurboFan). It uses this information to generate highly optimized, low-level Machine Code that can run directly on the computer's CPU. This optimized code is much faster than the interpreted bytecode.
+
+5.  De-optimization: If an assumption made during optimization turns out to be wrong (e.g., a function optimized for numbers is suddenly called with a string), the engine intelligently discards the optimized code and "de-optimizes," falling back to the slower bytecode to ensure correctness.
+
+This JIT process provides the best of both worlds: your code starts executing quickly thanks to the interpreter, and it gets faster over time as the compiler optimizes the parts that are used most often.
+
+Summary Example: var sum = 10 + 20;
+
+  - Memory Phase: sum is allocated in memory and given the value undefined.
+  - Execution Phase (Simplified):
+    1.  The value 10 is identified.
+    2.  The + operator is recognized.
+    3.  The value 20 is identified.
+    4.  The addition is performed, resulting in 30.
+    5.  The = assignment operator places the value 30 into the memory location for the sum variable.
