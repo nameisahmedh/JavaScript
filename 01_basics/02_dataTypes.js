@@ -6,7 +6,7 @@ let isWorking = null
 
 //--->Premitive Types
 //number (integer+floating)
-//bigint (number larger than (2^53-1) and less than -(2^53-1))
+//bigint (number larger than (2^53-1) and less than -(2^53-1)) 100000000000000000000000n
 //String
 //Boolean
 //null
