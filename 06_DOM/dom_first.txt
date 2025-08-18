@@ -1,0 +1,47 @@
+console.log(window)
+console.log(window.document)
+console.log(document)
+console.log(document.baseURI)
+console.log(document.links)
+console.log(document.links[5])
+
+
+
+document.getElementById("lorem").id
+document.getElementById("lorem").class
+document.getElementById("lorem").className
+document.getElementById("lorem").getAttribute('id')
+document.getElementById("lorem").getAttribute('class')
+document.getElementById("lorem").setAttribute('class','text') ----> It will inject with another class name
+
+
+
+document.getE1ementById("title")
+const title = document.getE1ementById("tit1e")
+title.style.backgroundColor = "blue"
+title.style.color = "white"
+title.innerHTML
+title.innerText
+
+
+document.querySelector('#title')
+document.querySelector('#lorem')
+document.querySelector('h1')
+
+document.querySelector("input[type = password]")
+
+document.querySelector('ul')
+const ul = document.querySelector('ul')
+ul.querySelector('li')
+const li = ul.querySelector('li')
+li.style.backgroundColor = "green"
+
+document.querySelectorAll('li')
+
+difference b/w querySelector and querySelectorAll
+
+document.getElementsByClassName('list-text')
+
+to convert HTMLCollection to array use Array.from()
+const temp = document.getElementsByClassName('list-text')
+Array.from(temp)
