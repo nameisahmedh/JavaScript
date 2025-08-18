@@ -1,6 +1,0 @@
-console.log(window)
-console.log(window.document)
-console.log(document)
-console.log(document.baseURI)
-console.log(document.links)
-console.log(document.links[5])
