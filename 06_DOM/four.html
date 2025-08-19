@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom 4</title>
+</head>
+<body style="background-color: black; color: whitesmoke;">
+
+    <ul class="temp">
+        <li>Contents</li>
+    </ul>
+
+    <script>
+        // const ul = document.querySelector('ul')
+        // const li1 = document.createElement('li')
+        // const text = document.createTextNode("Features")
+        
+        // li1.appendChild(text)
+        // console.log(li1);
+        // ul.appendChild(li1)
+
+        function addElements(text){
+            const li  = document.createElement('li')
+            li.innerHTML = `${text}` // Here there will be tree traversal
+            document.querySelector('.temp').appendChild(li)
+
+        }
+        addElements('Reference')
+        addElements('Placements')
+
+        // More Optimse
+        function addOptimiseElements(text){
+            const li = document.createElement('li')
+            li.appendChild(document.createTextNode(text))
+
+            document.querySelector('.temp').appendChild(li)
+        }
+
+        addOptimiseElements("Home")
+        addOptimiseElements("Fields")
+
+
+        //Edit
+        const changeText = document.querySelector('li:nth-child(2)')
+
+        // changeText.innerHTML = "Hakuio"
+
+        const newText = document.createElement('li')
+        // newText.textContent ="Heyyy"
+        newText.appendChild(document.createTextNode("Heyyy"))
+
+        changeText.replaceWith(newText)
+
+        // remove
+        const removeChild = document.querySelector('li:last-child')
+
+        removeChild.remove()
+        
+    </script>
+</body>
+</html>
