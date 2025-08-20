@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>colorChange</title>
+    <style>
+        body{
+            width: 500px;
+            margin: auto;
+        }
+        div{
+        
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        
+        }
+        .button{
+            width: 100px;
+            height: 100px;
+            border: 2px solid;
+        }
+
+        #red{
+            background-color: red;
+        }
+        #green{
+            background-color: green;
+        }
+        #blue{
+            background-color: blue;
+        }
+        #yellow{
+            background-color: yellow;
+        }
+    </style>
+    
+</head>
+<body>
+    <h1>Change the color of background by clicking on any of the box as the box color</h1>
+    <div>
+        <span class="button" id="red"></span>
+        <span class="button" id="green"></span>
+        <span class="button" id="blue"></span>
+        <span class="button" id="yellow"></span>
+        
+    </div>
+    <script src="colorChanger.js"></script>
+</body>
+</html>
