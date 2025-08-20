@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Finder</title>
+    <style>
+        body {
+            width: 80vw;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            background-color: palegoldenrod;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>BMI Calculator</h1>
+
+    <form style="display: flex; flex-direction: column; gap: 20px;" action="text">
+        <div>
+            <label for="text"><b>Weight in kg:</b></label>
+            <input id="weight" type="text" placeholder="Enter your weight">
+        </div>
+        <div>
+            <label for="text"><b>Height in cm:</b></label>
+            <input id="height" type="text" placeholder="Enter your height">
+        </div>
+        <button>Calculate</button>
+        <div id="result"></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>BMI</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>&lt;=18.4</td>
+                    <td>Underweight</td>
+                </tr>
+                <tr>
+                    <td>18.5 - 24.9</td>
+                    <td>Normal</td>
+                </tr>
+                <tr>
+                    <td>25.0 - 29.9</td>
+                    <td>Overweight</td>
+                </tr>
+                <tr>
+                    <td>&gt;=30.0</td>
+                    <td>Obese</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </form>
+
+
+    <script src="BMIGenerater.js"></script>
+</body>
+
+</html>
