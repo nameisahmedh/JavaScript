@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Basics</title>
+    <style>
+        li>img{
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <h1>Lion Gallery</h1>
+            <!-- <li><img src="https://imgs.search.brave.com/21sPt-qLGsMqiq6nc_hCn3wOqxp2Q9tbzQaRPYL_rI4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLm5h/dGdlb2ZlLmNvbS9u/Lzc1MzVkMDYzLWY4/NDMtNDk2Ni1iZmRj/LTZkYzA1NTMwYzFm/OC9OYXRpb25hbEdl/b2dyYXBoaWNfMTc0/MDE5OF9TZXJlbmdl/dGlfY2MwNF9DUl9N/aWNoYWVsTmljaG9s/cy5qcGc" alt="" id="img1" onclick="alert('Parent lion with its child')"></li> usually we will be using onclick directly in the element which is a wrong practice when the project grows it becomes more complex so use onclick seperately by selecting particular id -->
+            <li><img src="https://imgs.search.brave.com/21sPt-qLGsMqiq6nc_hCn3wOqxp2Q9tbzQaRPYL_rI4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLm5h/dGdlb2ZlLmNvbS9u/Lzc1MzVkMDYzLWY4/NDMtNDk2Ni1iZmRj/LTZkYzA1NTMwYzFm/OC9OYXRpb25hbEdl/b2dyYXBoaWNfMTc0/MDE5OF9TZXJlbmdl/dGlfY2MwNF9DUl9N/aWNoYWVsTmljaG9s/cy5qcGc" alt="" id="img1"></li>
+
+            <li><img src="https://imgs.search.brave.com/piUyY4IoRRbq20sPHXzEd9H2mIMwhNYA6oLb8ISq1UY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTUz/MDMxNzM1L3Bob3Rv/L2xpb24tYW5kLWxp/b25lc3MuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPUxnZnV6/QWR6VjZGUmdia0c1/MnQxMHZ6QnBZeGdH/V1NTNjN0NWlKYWN1/aW89" alt="" id="img2"></li>
+            <li><img src="https://imgs.search.brave.com/iXbpU_VdMlSxmsAWRdottoRxGhDbMPnUK_sUYseLHIQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/d3dmLm9yZy51ay9z/aXRlcy9kZWZhdWx0/L2ZpbGVzL3N0eWxl/cy9tYXhfNjUweDY1/MC9wdWJsaWMvMjAx/OS0xMS9MaW9uZXNz/ZXMlMjBhbmQlMjBj/dWJzLmpwZz9pdG9r/PXFPNnRjUUct" alt="" id="img3"></li>
+            <li><img src="https://imgs.search.brave.com/WO6Mog5w47uiGM2PEr70Z48P6s5fYUk5Pz32nvJ8kEU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLm5h/dGdlb2ZlLmNvbS9u/LzFhNTMxMTc2LWQ2/MTktNDMwYS1iMzRm/LTMwZWY0Yjk0Yzcw/Yi80MzcuanBn" alt="" id="img4"></li>
+        </ul>
+    </div>
+    
+    <script>
+        document.getElementById('img2').onclick = function(){
+            alert("This is Image2 in the Lion Gallery");
+        }
+    </script>
+</body>
+</html>
