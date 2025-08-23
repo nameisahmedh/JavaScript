@@ -37,28 +37,45 @@
         // clientX, clientY, screenX, screenY
         // altkey, ctrlkey, shiftkey, keyCode
         
-        document.getElementById('gallery').addEventListener('click',function(e){
-            console.log("This this LIon Gallery");
+        // document.getElementById('gallery').addEventListener('click',function(e){
+        //     console.log("This this LIon Gallery");
             
-        },false) // capturing and bubbling 
+        // },false) // capturing and bubbling 
         // using default false is a bubbling , so we can remove false as it is default again in capturing we will make it to true
 
         // what false does it will print that inner part and related to other parent
 
         // true will print the parent and then inside it 
 
-        document.getElementById('img2').addEventListener('click', function(e){
-            console.log("Image 2 is being clicked");
-            e.stopPropagation() // this will help you to not to propagate to its parent of child
-        },false) // here false is default
+        // document.getElementById('img2').addEventListener('click', function(e){
+        //     console.log("Image 2 is being clicked");
+        //     e.stopPropagation() // this will help you to not to propagate to its parent of child
+        // },false) // here false is default
 
-        document.getElementById('google').addEventListener('click',(e)=>{
-            e.preventDefault() // This will help to prevent the default process which will be happening
-            e.stopPropagation()
-            console.log('Google Clicked');
+        // document.getElementById('google').addEventListener('click',(e)=>{
+        //     e.preventDefault() // This will help to prevent the default process which will be happening
+        //     e.stopPropagation()
+        //     console.log('Google Clicked');
+            
+        // })
+
+
+        document.querySelector('#gallery').addEventListener('click',function(e){
+            // console.log(e);
+            // console.log(e.target.parentNode);
+            // let del = e.target.parentNode;
+            // del.remove() 
+            // Be cautions as it will remove whole the parent of that particular child so better to use if condition
+
+            console.log(e.target.tagName);
+            if(e.target.tagName=='IMG'){
+                let del = e.target.parentNode;
+                del.remove() 
+            }
+            
             
         })
-
+        // del.parentNode.removeChild(del)
     </script>
 </body>
 </html>
