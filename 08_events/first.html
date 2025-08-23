@@ -12,7 +12,7 @@
 </head>
 <body>
     <div>
-        <ul>
+        <ul id="gallery">
             <h1>Lion Gallery</h1>
             <!-- <li><img src="https://imgs.search.brave.com/21sPt-qLGsMqiq6nc_hCn3wOqxp2Q9tbzQaRPYL_rI4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLm5h/dGdlb2ZlLmNvbS9u/Lzc1MzVkMDYzLWY4/NDMtNDk2Ni1iZmRj/LTZkYzA1NTMwYzFm/OC9OYXRpb25hbEdl/b2dyYXBoaWNfMTc0/MDE5OF9TZXJlbmdl/dGlfY2MwNF9DUl9N/aWNoYWVsTmljaG9s/cy5qcGc" alt="" id="img1" onclick="alert('Parent lion with its child')"></li> usually we will be using onclick directly in the element which is a wrong practice when the project grows it becomes more complex so use onclick seperately by selecting particular id -->
             <li><img src="https://imgs.search.brave.com/21sPt-qLGsMqiq6nc_hCn3wOqxp2Q9tbzQaRPYL_rI4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLm5h/dGdlb2ZlLmNvbS9u/Lzc1MzVkMDYzLWY4/NDMtNDk2Ni1iZmRj/LTZkYzA1NTMwYzFm/OC9OYXRpb25hbEdl/b2dyYXBoaWNfMTc0/MDE5OF9TZXJlbmdl/dGlfY2MwNF9DUl9N/aWNoYWVsTmljaG9s/cy5qcGc" alt="" id="img1"></li>
@@ -20,13 +20,45 @@
             <li><img src="https://imgs.search.brave.com/piUyY4IoRRbq20sPHXzEd9H2mIMwhNYA6oLb8ISq1UY/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTUz/MDMxNzM1L3Bob3Rv/L2xpb24tYW5kLWxp/b25lc3MuanBnP3M9/NjEyeDYxMiZ3PTAm/az0yMCZjPUxnZnV6/QWR6VjZGUmdia0c1/MnQxMHZ6QnBZeGdH/V1NTNjN0NWlKYWN1/aW89" alt="" id="img2"></li>
             <li><img src="https://imgs.search.brave.com/iXbpU_VdMlSxmsAWRdottoRxGhDbMPnUK_sUYseLHIQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/d3dmLm9yZy51ay9z/aXRlcy9kZWZhdWx0/L2ZpbGVzL3N0eWxl/cy9tYXhfNjUweDY1/MC9wdWJsaWMvMjAx/OS0xMS9MaW9uZXNz/ZXMlMjBhbmQlMjBj/dWJzLmpwZz9pdG9r/PXFPNnRjUUct" alt="" id="img3"></li>
             <li><img src="https://imgs.search.brave.com/WO6Mog5w47uiGM2PEr70Z48P6s5fYUk5Pz32nvJ8kEU/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLm5h/dGdlb2ZlLmNvbS9u/LzFhNTMxMTc2LWQ2/MTktNDMwYS1iMzRm/LTMwZWY0Yjk0Yzcw/Yi80MzcuanBn" alt="" id="img4"></li>
+            <li><a href="https://www.google.com" id="google">Google</a></li>
         </ul>
     </div>
     
     <script>
-        document.getElementById('img2').onclick = function(){
-            alert("This is Image2 in the Lion Gallery");
-        }
+        // document.getElementById('img2').onclick = function(){
+        //     alert("This is Image2 in the Lion Gallery");
+        // } This will also provide less features
+
+        // attachEvent()
+        // jQuery - onEventListener. This both are old
+
+        // type, timestamp, defaultPrevented
+        // target, toElement, srcElement, currentTarget,
+        // clientX, clientY, screenX, screenY
+        // altkey, ctrlkey, shiftkey, keyCode
+        
+        document.getElementById('gallery').addEventListener('click',function(e){
+            console.log("This this LIon Gallery");
+            
+        },false) // capturing and bubbling 
+        // using default false is a bubbling , so we can remove false as it is default again in capturing we will make it to true
+
+        // what false does it will print that inner part and related to other parent
+
+        // true will print the parent and then inside it 
+
+        document.getElementById('img2').addEventListener('click', function(e){
+            console.log("Image 2 is being clicked");
+            e.stopPropagation() // this will help you to not to propagate to its parent of child
+        },false) // here false is default
+
+        document.getElementById('google').addEventListener('click',(e)=>{
+            e.preventDefault() // This will help to prevent the default process which will be happening
+            e.stopPropagation()
+            console.log('Google Clicked');
+            
+        })
+
     </script>
 </body>
 </html>
