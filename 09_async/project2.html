@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background color</title>
+</head>
+<body>
+    <h1 id="main">Change the Background color continuosly and stop the color </h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+<script>
+
+    let changed;
+    const changeColor = function(){
+        let min = 0
+        let max = 255
+        let R = Math.floor((Math.random()*(max-min))+min)
+        let G = Math.floor((Math.random()*(max-min))+min)
+        let B = Math.floor((Math.random()*(max-min))+min)
+        
+        document.body.style.backgroundColor  = `rgb(${R},${G},${B})`
+    }
+    document.getElementById('start').addEventListener('click',()=>{
+        if(!changed){
+            console.log('STARTED');
+            changed = setInterval(changeColor,1000);
+        }
+    })
+    document.getElementById('stop').addEventListener('click',()=>{
+        clearInterval(changed)
+        changed = null
+        console.log('STOPPED BG');
+        
+    })
+</script>
+</html>

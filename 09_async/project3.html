@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Key Pressed</title>
+</head>
+
+<body>
+    <div id="box">
+        <div class="key">Press the key to see the magic</div>
+    </div>
+    <script>
+        const keyboard = document.getElementById('box')
+
+        window.addEventListener('keydown', function (e) {
+            keyboard.innerHTML = `
+                <table>
+  <tr>
+    <th>Key</th>
+    <th>keyid</th>
+    <th>keyName</th>
+  </tr>
+  <tr>
+    <td>${e.key == " "? "Space": e.key}</td>
+    <td>${e.keyCode}</td>
+    <td>${e.code}</td>
+  </tr>
+</table>`
+        })
+    </script>
+</body>
+
+</html>

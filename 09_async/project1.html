@@ -3,10 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Project 2</title>
 </head>
 <body>
-    <h1>Ahmed the Boss</h1>
-    <button>Show</button>
+    <h1>All is Well</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+
+    <h1 id="counter">1</h1>
+    <button id="increment">increment</button>
+    <button id="decrement">decrement</button>
+
+    <script>
+        // document.getElementById('start').addEventListener('click',function(){
+        //     document.querySelector('h1').innerHTML = 'Rolex'
+        // })
+        let counter = document.getElementById('counter')
+        // console.log(counter);
+        
+        document.getElementById('increment').addEventListener('click',function(){
+            let currVal = parseInt(counter.innerHTML);
+            counter.innerHTML = currVal + 1;
+            
+        })
+        document.getElementById('decrement').addEventListener('click',function(){
+            let currVal = parseInt(counter.innerHTML);
+            counter.innerHTML = currVal - 1;
+            
+        })
+        
+        const runThis = ()=>{
+            console.log('Ahmed',Date.now())
+            
+        }
+        let intervalId;
+
+        document.getElementById('start').addEventListener('click',()=>{
+            if(!intervalId){
+                intervalId = setInterval(runThis,1000)
+            }
+        })
+        document.getElementById('stop').addEventListener('click',()=>{
+            clearInterval(intervalId)
+            intervalId = null;
+            console.log('STOPPEDD');
+            
+        })
+
+        
+        
+
+        
+    </script>
 </body>
 </html>
