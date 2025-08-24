@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+            <!-- Value	State	Description
+                0	UNSENT	Client has been created. open() not called yet.
+                1	OPENED	open() has been called.
+                2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+                3	LOADING	Downloading; responseText holds partial data.
+                4	DONE	The operation is complete. -->
+
+                <div id="main">
+
+                </div>
+</body>
+<script>
+    const reqUrl = 'https://api.github.com/users/nameisahmedh'
+    const xhr = new XMLHttpRequest()
+    xhr.open('GET',reqUrl)
+    xhr.onreadystatechange = function(){
+        // this onreadystatechane is used to change state continuously
+        console.log(xhr.readyState);
+        if(xhr.readyState === 4){
+        console.log(this.responseText);
+
+        // const data = this.responseText;
+        // console.log(typeof data);
+        // when ever a response comes from an url is a string type in most of the time
+
+        // JSON.parse is used to convert String to object
+        const data = JSON.parse(this.responseText);
+        console.log(data.name);
+        
+        const myImg = document.createElement('img')
+
+        myImg.id = "image"
+        myImg.src = data.avatar_url
+        document.getElementById('main').appendChild(myImg)
+
+        myImg.style.width = "100px"
+        myImg.style.borderRadius = "50%"
+
+        const name = document.createElement('h1')
+        name.innerHTML = data.name       
+        
+        document.getElementById('main').appendChild(name)
+        
+        
+    }
+    } 
+
+    
+    xhr.send()
+</script>
+</html>
